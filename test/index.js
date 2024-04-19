@@ -71,4 +71,38 @@ function function3() { //Strings
     console.log(myStr);
 }
 
-function3();
+function function4(n) {
+    if(n == 1) {
+        return n;
+    }
+    return function4(n-1) * n;
+}
+
+function function5() { //Arrays
+    var arr = ["Brandon", 1];
+    console.log(arr);
+    console.log("String: " + arr[0]);
+    console.log("Number: " + arr[1]);
+
+    arr[0] = "Browns";
+    console.log(arr);
+    console.log("String: " + arr[0]);
+    console.log("Number: " + arr[1]);
+
+    var arr2 = [arr, ["Ivan", 99]];
+    console.log(arr2);
+    console.log("String1: " + arr2[0][0]);
+    console.log("Number1: " + arr2[0][1]);
+    console.log("String2: " + arr2[1][0]);
+    console.log("Number2: " + arr2[1][1]);
+
+    var arr3 = [1,2,3];
+    console.log("Arr3: " + arr3);
+    arr3.push(arr2);
+    console.log("Arr3: " + arr3);
+    console.log("String1: " + arr3[arr3.length-1][0][0]);
+    arr3.unshift("Brandon");
+    console.log("Arr3: " + arr3);
+}
+
+function5();
