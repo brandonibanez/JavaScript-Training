@@ -41,6 +41,49 @@ function func2() {
     console.log(now - 1999 > now - 2018);
 }
 
+function func3() {
+    const firstName = 'Brandon';
+    const job = 'Programmer';
+    const birthYear = 1999;
+    const year = 2024;
+
+    const brandon = "I'm " + firstName + ', a ' + (year - birthYear)
+        + ' years old ' + job + '!';
+
+    console.log(brandon);
+
+    const brandonNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+
+    console.log(brandonNew);
+}
+
+function func4() {
+    const day = 'monday';
+
+    switch (day) {
+        case 'monday':
+            console.log('Monday time!');
+            break;
+        case 'tuesday':
+            console.log('Tuesday time!');
+            break;
+        case 'wednesday':
+            console.log('Wednesday time!');
+            break;
+        case 'thursday':
+            console.log('Thursday time!');
+            break;
+        case 'friday':
+            console.log('Friday time!');
+            break;
+        default:
+            console.log('Wrong wrong time!');
+            break;
+    }
+}
+
+func4();
+
 function assignment() {
     let country = "Philippines";
     let continent = "Asia";
@@ -120,10 +163,37 @@ function challengeOne() {
 function challengeTwo() {
     populateMarkAndJohn();
     if (markHigherBMI) {
-        console.log("Mark's BMI is higher than John's!");
+        console.log(`Mark's BMI (${mark.calculateBMI().toFixed(2)}) is higher than John's (${john.calculateBMI().toFixed(2)})!`);
     } else {
-        console.log("John's BMI is higher than Mark's!");
+        console.log(`John's BMI (${john.calculateBMI().toFixed(2)}) is higher than Mark's (${mark.calculateBMI().toFixed(2)})!`);
     }
 }
 
-challengeOne();
+class Animal {
+    constructor(scores) {
+        this.scores = scores;
+    }
+
+    calculateAverage() {
+        return Math.round(this.scores.reduce(
+            (n1, n2) => n1 + n2, 0) / this.scores.length);
+    }
+}
+
+function challegeThree() {
+    let dolphins = new Animal([96, 108, 89]);
+    let koalas = new Animal([96, 108, 89]);
+    // let koalas = new Animal([88, 91, 110]);
+    let dolphinAverage = dolphins.calculateAverage();
+    let koalaAverage = koalas.calculateAverage();
+    console.log("Dolphins average score: " + dolphinAverage);
+    console.log("Koalas average score: " + koalaAverage);
+
+    if (dolphinAverage === koalaAverage) {
+        console.log("We have a draw!");
+    } else if (dolphinAverage > koalaAverage) {
+        console.log("Dolphins are better!");
+    } else if (dolphinAverage < koalaAverage) {
+        console.log("Koalas are better!");
+    }
+}
