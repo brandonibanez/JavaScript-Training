@@ -18,6 +18,29 @@ function func1() {
     console.log(myCurrentJob);
 }
 
+function func2() {
+    const now = 2024;
+    const ageBrandon = now - 1999;
+    const ageIvan = now - 1990;
+    console.log(ageBrandon, ageIvan);
+    console.log(ageBrandon * 2, ageIvan / 10, 2 ** 3);
+
+    const firstName = 'Brandon';
+    const lastName = 'Ibanez';
+    console.log(firstName + ' ' + lastName);
+
+    let x = 10 + 5;
+    console.log(x);
+    x += 10;
+    console.log(x);
+    x *= 4;
+    console.log(x);
+
+    console.log(ageBrandon > ageIvan);
+
+    console.log(now - 1999 > now - 2018);
+}
+
 function assignment() {
     let country = "Philippines";
     let continent = "Asia";
@@ -53,4 +76,54 @@ function assignment() {
     console.log(description);
 }
 
-assignment();
+let mark;
+let john;
+let markHigherBMI;
+
+function populateMarkAndJohn() {
+    mark = new Mark(1.69, 78);
+    john = new John(1.95, 92);
+    markHigherBMI = mark.calculateBMI() > john.calculateBMI();
+}
+
+class John {
+    constructor(height, weight) {
+        this.height = height;
+        this.weight = weight;
+    }
+
+    calculateBMI() {
+        return this.weight / this.height ** 2;
+    }
+}
+
+class Mark {
+    constructor(height, weight) {
+        this.height = height;
+        this.weight = weight;
+    }
+
+    calculateBMI() {
+        return this.weight / this.height ** 2;
+    }
+}
+
+function challengeOne() {
+    populateMarkAndJohn();
+    console.log(mark);
+    console.log(john);
+    console.log("Mark's BMI: " + mark.calculateBMI());
+    console.log("John's BMI: " + john.calculateBMI());
+    console.log(markHigherBMI);
+}
+
+function challengeTwo() {
+    populateMarkAndJohn();
+    if (markHigherBMI) {
+        console.log("Mark's BMI is higher than John's!");
+    } else {
+        console.log("John's BMI is higher than Mark's!");
+    }
+}
+
+challengeOne();
