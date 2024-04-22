@@ -1,3 +1,5 @@
+'use strict';
+
 function func1() {
     let js = 'amazing';
     console.log(40 + 8 + 23 - 10);
@@ -82,7 +84,7 @@ function func4() {
     }
 }
 
-func4();
+// func4();
 
 function assignment() {
     let country = "Philippines";
@@ -180,7 +182,7 @@ class Animal {
     }
 }
 
-function challegeThree() {
+function challengeThree() {
     let dolphins = new Animal([96, 108, 89]);
     let koalas = new Animal([96, 108, 89]);
     // let koalas = new Animal([88, 91, 110]);
@@ -197,3 +199,34 @@ function challegeThree() {
         console.log("Koalas are better!");
     }
 }
+
+const customFunction = function () {
+    challengeThree();
+}
+
+const customArrowFunction = (myFunctionName) => myFunctionName();
+
+customFunction();
+customArrowFunction(challengeTwo);
+
+class Calculator {
+    constructor(bill) {
+        this.bill = bill;
+        if (bill >= 50 && bill <= 300) {
+            this.tip = .15;
+        } else {
+            this.tip = .20;
+        }
+    }
+
+    print() {
+        console.log(`The bill was ${this.bill}, the tip was ${this.bill * this.tip}, and the total value ${this.bill + (this.bill * this.tip)}`);
+    }
+}
+
+function challengeFour() {
+    let calc1 = new Calculator(430);
+    calc1.print();
+}
+
+// challengeFour();
