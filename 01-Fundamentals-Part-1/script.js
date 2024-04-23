@@ -206,27 +206,35 @@ const customFunction = function () {
 
 const customArrowFunction = (myFunctionName) => myFunctionName();
 
-customFunction();
-customArrowFunction(challengeTwo);
+// customFunction();
+// customArrowFunction(challengeTwo);
 
 class Calculator {
     constructor(bill) {
         this.bill = bill;
-        if (bill >= 50 && bill <= 300) {
-            this.tip = .15;
-        } else {
-            this.tip = .20;
-        }
+        this.tip = bill >= 50 && bill <= 300
+            ? .15
+            : .20;
+        this.totalValue = this.bill + (this.bill * this.tip);
+        // if (bill >= 50 && bill <= 300) {
+        //     this.tip = .15;
+        // } else {
+        //     this.tip = .20;
+        // }
     }
 
     print() {
-        console.log(`The bill was ${this.bill}, the tip was ${this.bill * this.tip}, and the total value ${this.bill + (this.bill * this.tip)}`);
+        console.log(`The bill was ${this.bill}, the tip was ${this.bill * this.tip}, and the total value ${this.totalValue}`);
     }
+
+    // print() {
+    //     console.log(`The bill was ${this.bill}, the tip was ${this.bill * this.tip}, and the total value ${this.bill + (this.bill * this.tip)}`);
+    // }
 }
 
 function challengeFour() {
-    let calc1 = new Calculator(430);
+    let calc1 = new Calculator(275);
     calc1.print();
 }
 
-// challengeFour();
+challengeFour();
