@@ -84,7 +84,39 @@ function func4() {
     }
 }
 
-// func4();
+function func5() {
+
+    const somethingArray = [
+        'Brandon',
+        'Ibanez',
+        3,
+        4,
+        5,
+        'Programmer',
+        true
+    ];
+
+    for (let x = 1; x <= 10; x++) {
+        console.log(`Doing repetition number: ${x}`);
+    }
+
+    for (let x = 0; x < somethingArray.length; x++) {
+        console.log(somethingArray[x], typeof somethingArray[x]);
+    }
+
+    let loop = true;
+    let counter = 1;
+
+    console.log(`Outside loop '${loop}'`);
+    while (loop) {
+        console.log(`Inside loop '${loop}' ${counter}`);
+        counter++;
+        loop = counter > 3 ? false : true;
+    }
+    console.log(`Outside after the loop '${loop}'`);
+}
+
+// func5();
 
 function assignment() {
     let country = "Philippines";
@@ -232,9 +264,78 @@ class Calculator {
     // }
 }
 
+// var NewCalculators = function (bills) {
+//     bills = bills;
+//     let tips = bills.map(bill => bill >= 50 && bill <= 300
+//         ? .15
+//         : .20)
+//     let totalValues = bills.map(bill => bill >= 50 && bill <= 300
+//         ? bill + (bill * .15)
+//         : bill + (bill * .20))
+
+//     function print() {
+//         for (let x = 0; x < bills.length; x++) {
+//             console.log(`The bill was ${bills[x]}, the tip was ${bills[x] * tips[x]}, and the total value ${totalValues[x]}`);
+//         }
+//     }
+
+//     function printBillsAverage() {
+//         const average = Math.round(bills.reduce((n1, n2) => n1 + n2, 0) / bills.length);
+//         console.log(`Bills average: ${average}`);
+//     }
+
+//     print();
+// }
+
+class NewCalculator {
+
+    constructor(bills) {
+        this.bills = bills;
+        this.calculateTipsAndTotalValues();
+        // this.tips = [];
+        // this.totalValues = [];
+
+        // for (let x = 0; x < bills.length; x++) {
+        //     this.tips[x] = bills[x] >= 50 && bills[x] <= 300
+        //         ? .15
+        //         : .20;
+        //     this.totalValues[x] = this.bills[x] + (this.bills[x] * this.tips[x]);
+        // }
+    }
+
+    calculateTipsAndTotalValues() {
+        this.tips = this.bills.map(bill => bill >= 50 && bill <= 300
+            ? .15
+            : .20)
+        this.totalValues = this.bills.map(bill => bill >= 50 && bill <= 300
+            ? bill + (bill * .15)
+            : bill + (bill * .20))
+    }
+
+    print() {
+        for (let x = 0; x < this.bills.length; x++) {
+            console.log(`The bill was ${this.bills[x]}, the tip was ${this.bills[x] * this.tips[x]}, and the total value ${this.totalValues[x]}`);
+        }
+    }
+
+    printBillsAverage() {
+        const average = Math.round(this.bills.reduce((n1, n2) => n1 + n2, 0) / this.bills.length);
+        console.log(`Bills average: ${average}`);
+    }
+}
+
 function challengeFour() {
+    const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
     let calc1 = new Calculator(275);
-    calc1.print();
+    let calc2 = new NewCalculator(bills);
+    console.log(calc2);
+    bills.push(275)
+    // calc2.bills.push(275);
+    calc2.calculateTipsAndTotalValues();
+    calc2.bills.push(275);
+    calc2.calculateTipsAndTotalValues();
+    console.log(calc2);
+    calc2.print();
 }
 
 challengeFour();
