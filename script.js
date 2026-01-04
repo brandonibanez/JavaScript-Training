@@ -50,19 +50,36 @@
 // x1 = y = 25 - 10 - 5;
 // console.log(x1, y);
 
-const firstName = "Brandon";
-const job = "developer";
+// const firstName = "Brandon";
+// const job = "developer";
+// const birthYear = 1999;
+
+// const brandon =
+//   "I'm " + firstName + ", a " + (2026 - birthYear) + " year old " + job + "!";
+// console.log(brandon);
+
+// const brandonNew = `I'm ${firstName}, a ${2026 - birthYear} year old ${job}!`;
+// console.log(brandonNew);
+
+// console.log(`Just a regular string...`);
+// console.log(`String with
+// multiple
+// lines`);
+// console.log("String with\nmultiple\nlines");
+
+const age = 15;
+if (age >= 18) {
+  console.log("Sarah can start driving license 🚗");
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+}
+
 const birthYear = 1999;
-
-const brandon =
-  "I'm " + firstName + ", a " + (2026 - birthYear) + " year old " + job + "!";
-console.log(brandon);
-
-const brandonNew = `I'm ${firstName}, a ${2026 - birthYear} year old ${job}!`;
-console.log(brandonNew);
-
-console.log(`Just a regular string...`);
-console.log(`String with
-multiple
-lines`);
-console.log("String with\nmultiple\nlines");
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
