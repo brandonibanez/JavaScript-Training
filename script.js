@@ -135,26 +135,69 @@
 
 // if (favorite !== 23) console.log("Why not 23?");
 
-const hasDriversLicense = true;
-const hasGoodVision = true;
+// const hasDriversLicense = true;
+// const hasGoodVision = true;
 
-console.log(hasDriversLicense && hasGoodVision);
-console.log(hasDriversLicense || hasGoodVision);
-console.log(!hasDriversLicense);
+// console.log(hasDriversLicense && hasGoodVision);
+// console.log(hasDriversLicense || hasGoodVision);
+// console.log(!hasDriversLicense);
 
-const shouldDrive = hasDriversLicense && hasGoodVision;
+// const shouldDrive = hasDriversLicense && hasGoodVision;
 
-if (shouldDrive) {
-  console.log("Sarah is able to drive!");
-} else {
-  console.log("Someone else should drive...");
-}
+// if (shouldDrive) {
+//   console.log("Sarah is able to drive!");
+// } else {
+//   console.log("Someone else should drive...");
+// }
 
-const isTired = true;
-console.log(hasDriversLicense || hasGoodVision || isTired);
+// const isTired = true;
+// console.log(hasDriversLicense || hasGoodVision || isTired);
 
-if (hasDriversLicense && hasGoodVision && !isTired) {
-  console.log("Sarah is able to drive!");
-} else {
-  console.log("Someone else should drive...");
+// if (hasDriversLicense && hasGoodVision && !isTired) {
+//   console.log("Sarah is able to drive!");
+// } else {
+//   console.log("Someone else should drive...");
+// }
+
+const day = "monday";
+
+const days = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+
+const randomDay = days[Math.floor(Math.random() * days.length)];
+
+console.log(randomDay);
+
+switch (randomDay) {
+  case "monday":
+    console.log("Plan course structure");
+    console.log("Go to coding meetup");
+    break;
+  case "tuesday":
+    console.log("Prepare theory videos");
+    break;
+  case "wednesday":
+    console.log("Write code examples");
+    break;
+  case "thursday":
+    console.log("Record videos");
+    break;
+  case "friday":
+    console.log("Film videos");
+    break;
+  case "saturday":
+    console.log("Enjoy the weekend :D");
+    break;
+  case "sunday":
+    console.log("Prepare for the week ahead");
+    break;
+  default:
+    console.log("Not a valid day!");
 }
