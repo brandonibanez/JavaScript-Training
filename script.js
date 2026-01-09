@@ -127,42 +127,64 @@
 //   console.log("You have a friend called Steven");
 // }
 
-const brandonArray = [
-  "Brandon",
-  "Smith",
-  2026 - 1999,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
-];
+// const brandonArray = [
+//   "Brandon",
+//   "Smith",
+//   2026 - 1999,
+//   "teacher",
+//   ["Michael", "Peter", "Steven"],
+// ];
+// const brandon = {
+//   firstName: "Brandon",
+//   lastName: "Smith",
+//   age: 2026 - 1999,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+// };
+// console.log(brandon);
+
+// console.log(brandon.lastName);
+// console.log(brandon["lastName"]);
+
+// const nameKey = "Name";
+// console.log(brandon["first" + nameKey]);
+// console.log(brandon["last" + nameKey]);
+
+// // const interestedIn = prompt(
+// //   "What do you want to know about Brandon? Choose between firstName, lastName, age, job, and friends."
+// // );
+// const interestedIn = "job";
+
+// if (brandon[interestedIn]) {
+//   console.log(brandon[interestedIn]);
+// } else {
+//   console.log(
+//     "Wrong request! Choose between firstName, lastName, age, job, and friends."
+//   );
+// }
+
+// brandon.location = "USA";
+// brandon["twitter"] = "@brandonsmith";
+// console.log(brandon);
+
 const brandon = {
   firstName: "Brandon",
   lastName: "Smith",
-  age: 2026 - 1999,
+  birthYear: 1999,
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicense: true,
+  calcAge: function () {
+    this.age = 2026 - this.birthYear;
+    return this.age;
+  },
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year-old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`;
+  },
 };
-console.log(brandon);
-
-console.log(brandon.lastName);
-console.log(brandon["lastName"]);
-
-const nameKey = "Name";
-console.log(brandon["first" + nameKey]);
-console.log(brandon["last" + nameKey]);
-
-// const interestedIn = prompt(
-//   "What do you want to know about Brandon? Choose between firstName, lastName, age, job, and friends."
-// );
-const interestedIn = "job";
-
-if (brandon[interestedIn]) {
-  console.log(brandon[interestedIn]);
-} else {
-  console.log(
-    "Wrong request! Choose between firstName, lastName, age, job, and friends."
-  );
-}
-
-brandon.location = "USA";
-brandon["twitter"] = "@brandonsmith";
+console.log(brandon.calcAge());
+console.log(brandon.age);
+console.log(brandon.getSummary());
 console.log(brandon);
