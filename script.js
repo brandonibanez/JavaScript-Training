@@ -102,27 +102,43 @@
 // ];
 // console.log(ages);
 
-const friends = ["Michael", "Steven", "Peter"];
-console.log(friends);
-const newLength = friends.push("Jay");
-console.log(friends);
-console.log(newLength);
+// const friends = ["Michael", "Steven", "Peter"];
+// console.log(friends);
+// const newLength = friends.push("Jay");
+// console.log(friends);
+// console.log(newLength);
 
-friends.unshift("John");
-console.log(friends);
+// friends.unshift("John");
+// console.log(friends);
 
-friends.pop();
-console.log(friends);
-console.log(friends.pop());
-console.log(friends);
-console.log(friends.shift());
-console.log(friends);
-friends.push("Steven");
-console.log(friends);
-console.log(friends.indexOf("Steven"));
-console.log(friends.includes("Steven"));
-console.log(friends.includes("Bob"));
+// friends.pop();
+// console.log(friends);
+// console.log(friends.pop());
+// console.log(friends);
+// console.log(friends.shift());
+// console.log(friends);
+// friends.push("Steven");
+// console.log(friends);
+// console.log(friends.indexOf("Steven"));
+// console.log(friends.includes("Steven"));
+// console.log(friends.includes("Bob"));
 
-if (friends.includes("Steven")) {
-  console.log("You have a friend called Steven");
-}
+// if (friends.includes("Steven")) {
+//   console.log("You have a friend called Steven");
+// }
+
+const brandonArray = [
+  "Brandon",
+  "Smith",
+  2026 - 1999,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+];
+const brandon = {
+  firstName: "Brandon",
+  lastName: "Smith",
+  age: 2026 - 1999,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+console.log(brandon);
