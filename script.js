@@ -67,37 +67,62 @@
 
 // console.log(calcAverage(1, 2, 3));
 
+// const friends = ["Michael", "Steven", "Peter"];
+// console.log(friends);
+
+// const years = new Array(1999, 1984, 2008, 2020);
+// console.log(years);
+
+// console.log(friends[0]);
+// console.log(friends[2]);
+
+// console.log(friends.length);
+// console.log(friends[friends.length - 1]);
+
+// friends[2] = "Jay";
+// console.log(friends);
+
+// const firstName = "Brandon";
+// const brandon = [firstName, "Smith", 2026 - 1999, "teacher", friends];
+// console.log(brandon);
+// console.log(brandon[4]);
+
+// const calcAge = function (birthYear) {
+//   return 2026 - birthYear;
+// };
+// const years2 = [1999, 1984, 2008, 2020];
+// const age1 = calcAge(years2[0]);
+// const age2 = calcAge(years2[1]);
+// const age3 = calcAge(years2[years2.length - 1]);
+// console.log(age1, age2, age3);
+// const ages = [
+//   calcAge(years2[0]),
+//   calcAge(years2[1]),
+//   calcAge(years2[years2.length - 1]),
+// ];
+// console.log(ages);
+
 const friends = ["Michael", "Steven", "Peter"];
 console.log(friends);
+const newLength = friends.push("Jay");
+console.log(friends);
+console.log(newLength);
 
-const years = new Array(1999, 1984, 2008, 2020);
-console.log(years);
-
-console.log(friends[0]);
-console.log(friends[2]);
-
-console.log(friends.length);
-console.log(friends[friends.length - 1]);
-
-friends[2] = "Jay";
+friends.unshift("John");
 console.log(friends);
 
-const firstName = "Brandon";
-const brandon = [firstName, "Smith", 2026 - 1999, "teacher", friends];
-console.log(brandon);
-console.log(brandon[4]);
+friends.pop();
+console.log(friends);
+console.log(friends.pop());
+console.log(friends);
+console.log(friends.shift());
+console.log(friends);
+friends.push("Steven");
+console.log(friends);
+console.log(friends.indexOf("Steven"));
+console.log(friends.includes("Steven"));
+console.log(friends.includes("Bob"));
 
-const calcAge = function (birthYear) {
-  return 2026 - birthYear;
-};
-const years2 = [1999, 1984, 2008, 2020];
-const age1 = calcAge(years2[0]);
-const age2 = calcAge(years2[1]);
-const age3 = calcAge(years2[years2.length - 1]);
-console.log(age1, age2, age3);
-const ages = [
-  calcAge(years2[0]),
-  calcAge(years2[1]),
-  calcAge(years2[years2.length - 1]),
-];
-console.log(ages);
+if (friends.includes("Steven")) {
+  console.log("You have a friend called Steven");
+}
