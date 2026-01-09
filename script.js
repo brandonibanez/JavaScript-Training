@@ -142,3 +142,27 @@ const brandon = {
   friends: ["Michael", "Peter", "Steven"],
 };
 console.log(brandon);
+
+console.log(brandon.lastName);
+console.log(brandon["lastName"]);
+
+const nameKey = "Name";
+console.log(brandon["first" + nameKey]);
+console.log(brandon["last" + nameKey]);
+
+// const interestedIn = prompt(
+//   "What do you want to know about Brandon? Choose between firstName, lastName, age, job, and friends."
+// );
+const interestedIn = "job";
+
+if (brandon[interestedIn]) {
+  console.log(brandon[interestedIn]);
+} else {
+  console.log(
+    "Wrong request! Choose between firstName, lastName, age, job, and friends."
+  );
+}
+
+brandon.location = "USA";
+brandon["twitter"] = "@brandonsmith";
+console.log(brandon);
