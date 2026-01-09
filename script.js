@@ -189,6 +189,31 @@
 // console.log(brandon.getSummary());
 // console.log(brandon);
 
-for (let rep = 1; rep <= 10; rep++) {
-  console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
+// }
+
+const brandonArray = [
+  "Brandon",
+  "Smith",
+  2026 - 1999,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+];
+for (let i = 0; i < brandonArray.length; i++) {
+  if (typeof brandonArray[i] !== "object") continue;
+  else if (typeof brandonArray[i] == "object") {
+    for (let j = 0; j < brandonArray[i].length; j++) {
+      console.log(brandonArray[i][j]);
+    }
+  }
+  console.log(brandonArray[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`---- Starting exercise ${exercise} ----`);
+  for (let rep = 1; rep < 6; rep++) {
+    if (exercise === 2 && rep === 3) break;
+    console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️‍♂️`);
+  }
 }
