@@ -8,7 +8,7 @@
 
 // document.querySelector('.guess').value = 23;
 // console.log(document.querySelector('.guess').value);
-const number = Math.trunc(Math.random() * 20) + 1;
+let number = Math.trunc(Math.random() * 20) + 1;
 console.log(number);
 
 let score = 20;
@@ -19,7 +19,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
   if (!guess) {
     document.querySelector('.message').textContent = 'No number!';
-  } else if (guess === number) {
+  } else if (guess === number && score > 0) {
     document.querySelector('.message').textContent = 'Correct Number!';
     document.querySelector('.number').textContent = number;
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -32,6 +32,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       document.querySelector('.message').textContent = 'You lost the game!';
       document.querySelector('.score').textContent = 0;
+      score--;
     }
   } else if (guess < number) {
     if (score > 1) {
@@ -41,6 +42,19 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       document.querySelector('.message').textContent = 'You lost the game!';
       document.querySelector('.score').textContent = 0;
+      score--;
     }
   }
+});
+
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  number = Math.trunc(Math.random() * 20) + 1;
+  console.log(number);
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });
