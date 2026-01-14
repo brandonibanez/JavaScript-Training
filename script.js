@@ -66,3 +66,25 @@ btnHold.addEventListener('click', function () {
     switchPlayer();
   }
 });
+
+btnNew.addEventListener('click', function () {
+  // Reset all game state variables
+  scores[0] = 0;
+  scores[1] = 0;
+  currentScore = 0;
+  activePlayer = 0;
+
+  // Reset UI elements
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+  diceEl.classList.add('hidden');
+  btnRoll.disabled = false;
+  btnHold.disabled = false;
+
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+});
