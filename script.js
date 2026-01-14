@@ -1,90 +1,36 @@
 'use strict';
 
-const player0El = document.querySelector('.player--0');
-const player1El = document.querySelector('.player--1');
-const score0El = document.getElementById('score--0');
-const score1El = document.getElementById('score--1');
-const current0El = document.getElementById('current--0');
-const current1El = document.getElementById('current--1');
-const diceEl = document.querySelector('.dice');
-const btnNew = document.querySelector('.btn--new');
-const btnRoll = document.querySelector('.btn--roll');
-const btnHold = document.querySelector('.btn--hold');
+function calcAge(birthYear) {
+  const age = 2026 - birthYear;
 
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+  function printAge() {
+    let output = `${firstName}, you are ${age}, born in ${birthYear}`;
+    console.log(output);
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millennial = true;
+      // Creating NEW variable with same name as outer scope's variable
+      const firstName = 'Ivan';
+      // Reassigning outer scope's variable
+      output = 'NEW OUTPUT!';
+      const str = `Oh, and you're a millennial, ${firstName}`;
+      console.log(str);
 
-const switchPlayer = function () {
-  document.getElementById(`current--${activePlayer}`).textContent = 0;
-  currentScore = 0;
-  activePlayer = activePlayer === 0 ? 1 : 0;
-  player0El.classList.toggle('player--active');
-  player1El.classList.toggle('player--active');
-};
-
-btnRoll.addEventListener('click', function () {
-  // 1. Generating a random dice roll
-  const dice = Math.trunc(Math.random() * 6) + 1;
-
-  // 2. Display dice
-  diceEl.classList.remove('hidden');
-  diceEl.src = `dice-${dice}.png`;
-
-  if (dice !== 1) {
-    currentScore += dice;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-  } else {
-    switchPlayer();
+      function add(a, b) {
+        return a + b;
+      }
+      console.log(add(2, 3));
+    }
+    // console.log(str); // Error: str is not defined
+    console.log(millennial); // Works due to var scoping
+    // add(2, 3); // Error: add is not defined
+    console.log(output);
   }
-});
+  printAge();
 
-btnHold.addEventListener('click', function () {
-  // 1. Add current score to active player's score
-  scores[activePlayer] += currentScore;
-  document.getElementById(`score--${activePlayer}`).textContent =
-    scores[activePlayer];
+  return age;
+}
 
-  // 2. Check if player's score is >= 100
-  if (scores[activePlayer] >= 100) {
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add('player--winner');
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove('player--active');
-    diceEl.classList.add('hidden');
-    btnRoll.disabled = true;
-    btnHold.disabled = true;
-  } else {
-    // Switch to the next player
-    switchPlayer();
-  }
-});
-
-btnNew.addEventListener('click', function () {
-  // Reset all game state variables
-  scores[0] = 0;
-  scores[1] = 0;
-  currentScore = 0;
-  activePlayer = 0;
-
-  // Reset UI elements
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  current0El.textContent = 0;
-  current1El.textContent = 0;
-  diceEl.classList.add('hidden');
-  btnRoll.disabled = false;
-  btnHold.disabled = false;
-
-  player0El.classList.remove('player--winner');
-  player1El.classList.remove('player--winner');
-  player0El.classList.add('player--active');
-  player1El.classList.remove('player--active');
-});
+const firstName = 'Brandon';
+const myAge = calcAge(1996);
+console.log(myAge);
