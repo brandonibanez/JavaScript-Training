@@ -74,35 +74,65 @@
 // console.log(y === window.y);
 // console.log(z === window.z);
 
-console.log(this);
+// console.log(this);
 
-const calcAge = function (birthYear) {
-  console.log(2026 - birthYear);
-  console.log(this);
-};
-calcAge(1996);
+// const calcAge = function (birthYear) {
+//   console.log(2026 - birthYear);
+//   console.log(this);
+// };
+// calcAge(1996);
 
-const calcAgeArrow = birthYear => {
-  console.log(2026 - birthYear);
-  console.log(this);
-};
-calcAgeArrow(1996);
+// const calcAgeArrow = birthYear => {
+//   console.log(2026 - birthYear);
+//   console.log(this);
+// };
+// calcAgeArrow(1996);
+
+// const brandon = {
+//   year: 1996,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2026 - this.year);
+//   },
+// };
+// brandon.calcAge();
+
+// const matilda = {
+//   year: 2017,
+// };
+
+// matilda.calcAge = brandon.calcAge;
+// matilda.calcAge();
+
+// const f = brandon.calcAge;
+// f(); // Error
 
 const brandon = {
+  firstName: 'Brandon',
   year: 1996,
   calcAge: function () {
-    console.log(this);
+    // console.log(this);
     console.log(2026 - this.year);
+
+    // const self = this; // self or that
+    // const isMillennial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    // };
+
+    // Solution 2
+    const isMillennial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillennial();
+  },
+
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
   },
 };
+
 brandon.calcAge();
-
-const matilda = {
-  year: 2017,
-};
-
-matilda.calcAge = brandon.calcAge;
-matilda.calcAge();
-
-const f = brandon.calcAge;
-f(); // Error
+brandon.greet();
