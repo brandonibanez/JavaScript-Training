@@ -35,41 +35,74 @@
 // const myAge = calcAge(1996);
 // console.log(myAge);
 
-console.log(me);
-// console.log(job);
-// console.log(year);
+// console.log(me);
+// // console.log(job);
+// // console.log(year);
 
-var me = 'Hello';
-let job = 'Developer';
-const year = 2026;
+// var me = 'Hello';
+// let job = 'Developer';
+// const year = 2026;
 
-console.log(addDecl(2, 3));
-// console.log(addExpr(2, 3));
-// console.log(addArrow(2, 3));
+// console.log(addDecl(2, 3));
+// // console.log(addExpr(2, 3));
+// // console.log(addArrow(2, 3));
 
-function addDecl(a, b) {
-  return a + b;
-}
+// function addDecl(a, b) {
+//   return a + b;
+// }
 
-const addExpr = function (a, b) {
-  return a + b;
+// const addExpr = function (a, b) {
+//   return a + b;
+// };
+
+// var addArrow = (a, b) => a + b;
+
+// // Example
+// if (!numProducts) deleteShoppingCart();
+
+// var numProducts = 10;
+
+// function deleteShoppingCart() {
+//   console.log('All products deleted!');
+// }
+
+// var x = 1;
+// let y = 2;
+// const z = 3;
+
+// console.log(x === window.x);
+// console.log(y === window.y);
+// console.log(z === window.z);
+
+console.log(this);
+
+const calcAge = function (birthYear) {
+  console.log(2026 - birthYear);
+  console.log(this);
+};
+calcAge(1996);
+
+const calcAgeArrow = birthYear => {
+  console.log(2026 - birthYear);
+  console.log(this);
+};
+calcAgeArrow(1996);
+
+const brandon = {
+  year: 1996,
+  calcAge: function () {
+    console.log(this);
+    console.log(2026 - this.year);
+  },
+};
+brandon.calcAge();
+
+const matilda = {
+  year: 2017,
 };
 
-var addArrow = (a, b) => a + b;
+matilda.calcAge = brandon.calcAge;
+matilda.calcAge();
 
-// Example
-if (!numProducts) deleteShoppingCart();
-
-var numProducts = 10;
-
-function deleteShoppingCart() {
-  console.log('All products deleted!');
-}
-
-var x = 1;
-let y = 2;
-const z = 3;
-
-console.log(x === window.x);
-console.log(y === window.y);
-console.log(z === window.z);
+const f = brandon.calcAge;
+f(); // Error
