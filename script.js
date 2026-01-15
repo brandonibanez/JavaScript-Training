@@ -107,32 +107,76 @@
 // const f = brandon.calcAge;
 // f(); // Error
 
-const brandon = {
-  firstName: 'Brandon',
-  year: 1996,
-  calcAge: function () {
-    // console.log(this);
-    console.log(2026 - this.year);
+// const brandon = {
+//   firstName: 'Brandon',
+//   year: 1996,
+//   calcAge: function () {
+//     // console.log(this);
+//     console.log(2026 - this.year);
 
-    // const self = this; // self or that
-    // const isMillennial = function () {
-    //   console.log(self);
-    //   console.log(self.year >= 1981 && self.year <= 1996);
-    // };
+//     // const self = this; // self or that
+//     // const isMillennial = function () {
+//     //   console.log(self);
+//     //   console.log(self.year >= 1981 && self.year <= 1996);
+//     // };
 
-    // Solution 2
-    const isMillennial = () => {
-      console.log(this);
-      console.log(this.year >= 1981 && this.year <= 1996);
-    };
-    isMillennial();
-  },
+//     // Solution 2
+//     const isMillennial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1981 && this.year <= 1996);
+//     };
+//     isMillennial();
+//   },
 
-  greet: () => {
-    console.log(this);
-    console.log(`Hey ${this.firstName}`);
+//   greet: () => {
+//     console.log(this);
+//     console.log(`Hey ${this.firstName}`);
+//   },
+// };
+
+// brandon.calcAge();
+// brandon.greet();
+
+const mary = {
+  firstName: 'Mary',
+  lastName: 'Smith',
+  age: 30,
+  getFullName: function () {
+    return `${this.firstName} ${this.lastName}`;
   },
 };
 
-brandon.calcAge();
-brandon.greet();
+function marryPerson(person, newLastName) {
+  person.lastName = newLastName;
+  return person;
+}
+
+const marriedMary = marryPerson(mary, 'Davis');
+// marriedMary.lastName = 'Johnson';
+
+console.log('Before marriage:', mary);
+console.log('After marriage:', marriedMary);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 28,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = { ...jessica };
+jessicaCopy.lastName = 'Davis';
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage:', jessica);
+console.log('After marriage:', jessicaCopy);
+jessicaCopy.family.push('Emma');
+console.log('After adding Emma to family:', jessicaCopy);
+
+const jessicaClone = structuredClone(jessica);
+jessicaClone.lastName = 'Brown';
+jessicaClone.family.push('Olivia');
+
+console.log('After cloning and modifying:', jessicaClone);
+console.log('Original Jessica remains unchanged:', jessica);
