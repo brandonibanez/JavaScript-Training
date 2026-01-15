@@ -44,4 +44,46 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
+
+const arr = [7, 8, 9];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+// Destructuring assignment
+const [x, y, z] = arr;
+console.log(x, y, z);
+console.log(arr);
+
+let [first, , second] = restaurant.categories;
+console.log(first, second);
+
+const temp = first;
+first = second;
+second = temp;
+
+console.log(first, second);
+
+[second, first] = [first, second];
+console.log(first, second);
+
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+// Nested destructuring
+const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested;
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// Default values
+const p = 8;
+const q = 9;
+const r = 10;
+const [m = 1, n = 1, o = 1] = [p, q];
+console.log(m, n, o);
