@@ -1,182 +1,47 @@
 'use strict';
 
-// function calcAge(birthYear) {
-//   const age = 2026 - birthYear;
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-//   function printAge() {
-//     let output = `${firstName}, you are ${age}, born in ${birthYear}`;
-//     console.log(output);
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
 
-//     if (birthYear >= 1981 && birthYear <= 1996) {
-//       var millennial = true;
-//       // Creating NEW variable with same name as outer scope's variable
-//       const firstName = 'Ivan';
-//       // Reassigning outer scope's variable
-//       output = 'NEW OUTPUT!';
-//       const str = `Oh, and you're a millennial, ${firstName}`;
-//       console.log(str);
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
 
-//       function add(a, b) {
-//         return a + b;
-//       }
-//       console.log(add(2, 3));
-//     }
-//     // console.log(str); // Error: str is not defined
-//     console.log(millennial); // Works due to var scoping
-//     // add(2, 3); // Error: add is not defined
-//     console.log(output);
-//   }
-//   printAge();
+// Data needed for first part of the section
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-//   return age;
-// }
-
-// const firstName = 'Brandon';
-// const myAge = calcAge(1996);
-// console.log(myAge);
-
-// console.log(me);
-// // console.log(job);
-// // console.log(year);
-
-// var me = 'Hello';
-// let job = 'Developer';
-// const year = 2026;
-
-// console.log(addDecl(2, 3));
-// // console.log(addExpr(2, 3));
-// // console.log(addArrow(2, 3));
-
-// function addDecl(a, b) {
-//   return a + b;
-// }
-
-// const addExpr = function (a, b) {
-//   return a + b;
-// };
-
-// var addArrow = (a, b) => a + b;
-
-// // Example
-// if (!numProducts) deleteShoppingCart();
-
-// var numProducts = 10;
-
-// function deleteShoppingCart() {
-//   console.log('All products deleted!');
-// }
-
-// var x = 1;
-// let y = 2;
-// const z = 3;
-
-// console.log(x === window.x);
-// console.log(y === window.y);
-// console.log(z === window.z);
-
-// console.log(this);
-
-// const calcAge = function (birthYear) {
-//   console.log(2026 - birthYear);
-//   console.log(this);
-// };
-// calcAge(1996);
-
-// const calcAgeArrow = birthYear => {
-//   console.log(2026 - birthYear);
-//   console.log(this);
-// };
-// calcAgeArrow(1996);
-
-// const brandon = {
-//   year: 1996,
-//   calcAge: function () {
-//     console.log(this);
-//     console.log(2026 - this.year);
-//   },
-// };
-// brandon.calcAge();
-
-// const matilda = {
-//   year: 2017,
-// };
-
-// matilda.calcAge = brandon.calcAge;
-// matilda.calcAge();
-
-// const f = brandon.calcAge;
-// f(); // Error
-
-// const brandon = {
-//   firstName: 'Brandon',
-//   year: 1996,
-//   calcAge: function () {
-//     // console.log(this);
-//     console.log(2026 - this.year);
-
-//     // const self = this; // self or that
-//     // const isMillennial = function () {
-//     //   console.log(self);
-//     //   console.log(self.year >= 1981 && self.year <= 1996);
-//     // };
-
-//     // Solution 2
-//     const isMillennial = () => {
-//       console.log(this);
-//       console.log(this.year >= 1981 && this.year <= 1996);
-//     };
-//     isMillennial();
-//   },
-
-//   greet: () => {
-//     console.log(this);
-//     console.log(`Hey ${this.firstName}`);
-//   },
-// };
-
-// brandon.calcAge();
-// brandon.greet();
-
-const mary = {
-  firstName: 'Mary',
-  lastName: 'Smith',
-  age: 30,
-  getFullName: function () {
-    return `${this.firstName} ${this.lastName}`;
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
   },
 };
-
-function marryPerson(person, newLastName) {
-  person.lastName = newLastName;
-  return person;
-}
-
-const marriedMary = marryPerson(mary, 'Davis');
-// marriedMary.lastName = 'Johnson';
-
-console.log('Before marriage:', mary);
-console.log('After marriage:', marriedMary);
-
-const jessica = {
-  firstName: 'Jessica',
-  lastName: 'Williams',
-  age: 28,
-  family: ['Alice', 'Bob'],
-};
-
-const jessicaCopy = { ...jessica };
-jessicaCopy.lastName = 'Davis';
-jessicaCopy.family.push('Mary');
-jessicaCopy.family.push('John');
-
-console.log('Before marriage:', jessica);
-console.log('After marriage:', jessicaCopy);
-jessicaCopy.family.push('Emma');
-console.log('After adding Emma to family:', jessicaCopy);
-
-const jessicaClone = structuredClone(jessica);
-jessicaClone.lastName = 'Brown';
-jessicaClone.family.push('Olivia');
-
-console.log('After cloning and modifying:', jessicaClone);
-console.log('Original Jessica remains unchanged:', jessica);
