@@ -72,23 +72,32 @@ const restaurant = {
   },
 };
 
-const rest1 = { name: 'Capri', numGuests: 0 };
-const rest2 = { name: 'La Piazza', owner: 'Giovanni Rossi' };
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-// rest1.numGuests = rest1.numGuests || 10;
-// rest2.numGuests = rest2.numGuests || 10;
+// for (const item of menu) console.log(item);
+for (const item of menu) console.log(item);
 
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 10;
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
 
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+// const rest1 = { name: 'Capri', numGuests: 0 };
+// const rest2 = { name: 'La Piazza', owner: 'Giovanni Rossi' };
 
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+// // rest1.numGuests = rest1.numGuests || 10;
+// // rest2.numGuests = rest2.numGuests || 10;
 
-console.log(rest1);
-console.log(rest2);
+// // rest1.numGuests ||= 10;
+// // rest2.numGuests ||= 10;
+
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
+
+// console.log(rest1);
+// console.log(rest2);
 
 // restaurant.numGuests = 0;
 // const guests2 = restaurant.numGuests || 10;
