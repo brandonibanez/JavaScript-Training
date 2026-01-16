@@ -72,34 +72,64 @@ const restaurant = {
   },
 };
 
-const arr = [2, 3, 4];
-const newArr = [1, ...arr];
-console.log(newArr);
-console.log(...newArr);
+const arr = [1, 2, ...[3, 4]];
 
-const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
-console.log(newMenu);
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
 
-const str = 'Brandon';
-const letters = [...str, ' ', 'S.'];
-console.log(letters);
-console.log(...str);
+const { fri, ...weekdays } = restaurant.openingHours;
+console.log(fri, weekdays);
 
-const ingredients = ['apple', 'banana', 'cherry'];
-console.log(ingredients);
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
 
-restaurant.orderPasta(...ingredients);
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
 
-const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
-console.log(newRestaurant);
+const x = [23, 5, 7];
+add(...x);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+
+// const arr = [2, 3, 4];
+// const newArr = [1, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+// console.log(newMenu);
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// const str = 'Brandon';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+// console.log(...str);
+
+// const ingredients = ['apple', 'banana', 'cherry'];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
 
 // restaurant.orderDelivery({
 //   time: '22:30',
