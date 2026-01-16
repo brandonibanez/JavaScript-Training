@@ -72,35 +72,60 @@ const restaurant = {
   },
 };
 
-const arr = [1, 2, ...[3, 4]];
+console.log(3 || 'Brandon');
+console.log('' || 'Brandon');
+console.log(true || 0);
+console.log(undefined || null);
 
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+console.log(undefined || 0 || '' || 'Hello' || 23);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
-const { fri, ...weekdays } = restaurant.openingHours;
-console.log(fri, weekdays);
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
 
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-  console.log(sum);
-};
+console.log(0 && 'Brandon');
+console.log(7 && 'Brandon');
 
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
+console.log('Hello' && 23 && null);
 
-const x = [23, 5, 7];
-add(...x);
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('test', 'test2', 'test3');
+}
 
-restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
-restaurant.orderPizza('mushrooms');
+restaurant.orderPizza && restaurant.orderPizza('test3', 'test4', 'test5');
+
+// const arr = [1, 2, ...[3, 4]];
+
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
+
+// const { fri, ...weekdays } = restaurant.openingHours;
+// console.log(fri, weekdays);
+
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms');
 
 // const arr = [2, 3, 4];
 // const newArr = [1, ...arr];
