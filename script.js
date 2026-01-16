@@ -72,30 +72,37 @@ const restaurant = {
   },
 };
 
-console.log(3 || 'Brandon');
-console.log('' || 'Brandon');
-console.log(true || 0);
-console.log(undefined || null);
-
-console.log(undefined || 0 || '' || 'Hello' || 23);
-
-restaurant.numGuests = 23;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
-
+restaurant.numGuests = 0;
 const guests2 = restaurant.numGuests || 10;
 console.log(guests2);
 
-console.log(0 && 'Brandon');
-console.log(7 && 'Brandon');
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
-console.log('Hello' && 23 && null);
+// console.log(3 || 'Brandon');
+// console.log('' || 'Brandon');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('test', 'test2', 'test3');
-}
+// console.log(undefined || 0 || '' || 'Hello' || 23);
 
-restaurant.orderPizza && restaurant.orderPizza('test3', 'test4', 'test5');
+// restaurant.numGuests = 23;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+// console.log(0 && 'Brandon');
+// console.log(7 && 'Brandon');
+
+// console.log('Hello' && 23 && null);
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('test', 'test2', 'test3');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('test3', 'test4', 'test5');
 
 // const arr = [1, 2, ...[3, 4]];
 
