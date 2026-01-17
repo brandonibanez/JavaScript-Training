@@ -110,6 +110,25 @@ const question = new Map([
 
 console.log(question);
 
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// quiz
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+const answer = 3;
+console.log(answer);
+
+if (answer === question.get('correct')) {
+  console.log(question.get(true));
+} else {
+  console.log(question.get(false));
+}
+
 // const commonFoods = italianFoods.intersection(mexicanFoods);
 // console.log(commonFoods);
 // console.log([...commonFoods]);
