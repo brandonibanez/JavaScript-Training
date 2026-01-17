@@ -68,25 +68,67 @@ const restaurant = {
   },
 };
 
-const commonFoods = italianFoods.intersection(mexicanFoods);
-console.log(commonFoods);
-console.log([...commonFoods]);
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Lisbon, Portugal');
 
-const italianMexicanFusion = italianFoods.union(mexicanFoods);
-console.log(italianMexicanFusion);
-console.log([...italianMexicanFusion]);
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
 
-const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
-console.log(uniqueItalianFoods);
-console.log([...uniqueItalianFoods]);
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
 
-const uniqueItalianMexicanFoods =
-  italianFoods.symmetricDifference(mexicanFoods);
-console.log(uniqueItalianMexicanFoods);
-console.log([...uniqueItalianMexicanFoods]);
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-console.log(italianFoods.isSubsetOf(mexicanFoods));
-console.log(commonFoods.isSubsetOf(italianFoods));
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+console.log(rest);
+console.log(rest.size);
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest);
+console.log(rest.get(arr));
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// const commonFoods = italianFoods.intersection(mexicanFoods);
+// console.log(commonFoods);
+// console.log([...commonFoods]);
+
+// const italianMexicanFusion = italianFoods.union(mexicanFoods);
+// console.log(italianMexicanFusion);
+// console.log([...italianMexicanFusion]);
+
+// const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+// console.log(uniqueItalianFoods);
+// console.log([...uniqueItalianFoods]);
+
+// const uniqueItalianMexicanFoods =
+//   italianFoods.symmetricDifference(mexicanFoods);
+// console.log(uniqueItalianMexicanFoods);
+// console.log([...uniqueItalianMexicanFoods]);
+
+// console.log(italianFoods.isSubsetOf(mexicanFoods));
+// console.log(commonFoods.isSubsetOf(italianFoods));
 
 // const ordersSet = new Set([
 //   'Pasta',
