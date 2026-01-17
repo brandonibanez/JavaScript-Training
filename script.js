@@ -68,24 +68,52 @@ const restaurant = {
   },
 };
 
-const properties = Object.keys(openingHours);
-console.log(properties);
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
 
-for (const day of properties) {
-  const open = openingHours[day].open;
-  const close = openingHours[day].close;
-  console.log(`On ${day}, we open at ${open} and close at ${close}`);
-}
+console.log(ordersSet);
+console.log(new Set('Brandon'));
 
-const values = Object.values(openingHours);
-console.log(values);
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
 
-const entries = Object.entries(openingHours);
-console.log(entries);
+for (const order of ordersSet) console.log(order);
 
-for (const [day, { open, close }] of entries) {
-  console.log(`On ${day}, we open at ${open} and close at ${close}`);
-}
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(`We have ${new Set(staff).size} different roles in the restaurant`);
+
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// for (const day of properties) {
+//   const open = openingHours[day].open;
+//   const close = openingHours[day].close;
+//   console.log(`On ${day}, we open at ${open} and close at ${close}`);
+// }
+
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// for (const [day, { open, close }] of entries) {
+//   console.log(`On ${day}, we open at ${open} and close at ${close}`);
+// }
 
 // if (restaurant.openingHours && restaurant.openingHours.mon) {
 //   console.log(restaurant.openingHours.mon.open);
