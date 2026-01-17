@@ -68,66 +68,93 @@ const restaurant = {
   },
 };
 
-const rest = new Map();
-rest.set('name', 'Classico Italiano');
-rest.set(1, 'Firenze, Italy');
-rest.set(2, 'Lisbon, Portugal');
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
 
-rest
-  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'We are open :D')
-  .set(false, 'We are closed :(');
+console.log(plane[0]);
+console.log(airline.length);
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
 
-console.log(rest.get('name'));
-console.log(rest.get(true));
-console.log(rest.get(1));
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-const time = 21;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -2));
 
-console.log(rest.has('categories'));
-rest.delete(2);
-// rest.clear();
-console.log(rest);
-console.log(rest.size);
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat 😬');
+  else console.log('You got lucky 😎');
+};
 
-const arr = [1, 2];
-rest.set(arr, 'Test');
-console.log(rest);
-console.log(rest.get(arr));
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
 
-const question = new Map([
-  ['question', 'What is the best programming language in the world?'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'JavaScript'],
-  ['correct', 3],
-  [true, 'Correct 🎉'],
-  [false, 'Try again!'],
-]);
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// rest.set(2, 'Lisbon, Portugal');
 
-console.log(question);
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open :D')
+//   .set(false, 'We are closed :(');
 
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
 
-// quiz
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
-}
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-const answer = 3;
-console.log(answer);
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// // rest.clear();
+// console.log(rest);
+// console.log(rest.size);
 
-if (answer === question.get('correct')) {
-  console.log(question.get(true));
-} else {
-  console.log(question.get(false));
-}
+// const arr = [1, 2];
+// rest.set(arr, 'Test');
+// console.log(rest);
+// console.log(rest.get(arr));
+
+// const question = new Map([
+//   ['question', 'What is the best programming language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct 🎉'],
+//   [false, 'Try again!'],
+// ]);
+
+// console.log(question);
+
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
+
+// // quiz
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+
+// const answer = 3;
+// console.log(answer);
+
+// if (answer === question.get('correct')) {
+//   console.log(question.get(true));
+// } else {
+//   console.log(question.get(false));
+// }
 
 // const commonFoods = italianFoods.intersection(mexicanFoods);
 // console.log(commonFoods);
