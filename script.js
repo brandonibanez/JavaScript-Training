@@ -1,279 +1,76 @@
 'use strict';
 
-// const booking = [];
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// BANKIST APP
 
-// const createBooking = function (
-//   flightNum,
-//   numPassengers = 1,
-//   price = 199 * numPassengers,
-// ) {
-//   // ES5 way of setting default parameters
-//   // numPassengers = numPassengers || 1;
-//   // price = price || 199;
-
-//   const bookingDetails = {
-//     flightNum,
-//     numPassengers,
-//     price,
-//   };
-
-//   console.log(bookingDetails);
-//   booking.push(bookingDetails);
-// };
-
-// createBooking('LH123');
-// createBooking('LH123', 2, 800);
-// createBooking('LH123', 5);
-// createBooking('LH123', undefined, 1000);
-
-// console.log(booking);
-
-// const flight = 'LH234';
-// const brandon = {
-//   name: 'Brandon Browns',
-//   passport: 24739479284,
-// };
-
-// const checkIn = function (flightNum, passenger) {
-//   flightNum = 'LH999';
-//   passenger.name = 'Mr. ' + passenger.name;
-
-//   if (passenger.passport === 24739479284) {
-//     console.log('Checked in');
-//   } else {
-//     console.log('Wrong passport!');
-//   }
-// };
-
-// checkIn(flight, brandon);
-// console.log(flight);
-// console.log(brandon);
-
-// const newPassport = function (person) {
-//   person.passport = Math.trunc(Math.random() * 10000000000);
-// };
-
-// newPassport(brandon);
-// checkIn(flight, brandon);
-
-// const oneWord = function (str) {
-//   return str.replace(/ /g, '').toLowerCase();
-// };
-
-// const upperFirstWord = function (str) {
-//   const [first, ...others] = str.split(' ');
-//   return [first.toUpperCase(), ...others].join(' ');
-// };
-
-// // Higher-order function
-// const transformer = function (str, fn) {
-//   console.log(`Original string: ${str}`);
-//   console.log(`Transformed string: ${fn(str)}`);
-
-//   console.log(`Transformed by: ${fn.name}`);
-// };
-
-// transformer('JavaScript is the best!', upperFirstWord);
-// transformer('JavaScript is the best!', oneWord);
-
-// // JS uses callbacks all the time
-// const high5 = function () {
-//   console.log('👋');
-// };
-
-// document.body.addEventListener('click', high5);
-
-// ['Brandon', 'Sarah', 'Adam'].forEach(high5);
-
-// const greet = function (greeting) {
-//   return function (name) {
-//     console.log(`${greeting} ${name}`);
-//   };
-// };
-
-// const greeterHey = greet('Hey');
-// greeterHey('Brandon');
-// greeterHey('Steven');
-
-// greet('Hello')('Michael');
-
-// // Challenge
-// const greetArrow = greeting => name => {
-//   console.log(`${greeting} ${name}`);
-// };
-
-// greetArrow('Hi')('Anna');
-
-// const lufthansa = {
-//   airline: 'Lufthansa',
-//   iataCode: 'LH',
-//   bookings: [],
-//   book(flightNum, name) {
-//     console.log(
-//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`,
-//     );
-//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-//   },
-// };
-
-// lufthansa.book(239, 'Brandon Browns');
-// lufthansa.book(635, 'Sarah Williams');
-// console.log(lufthansa.bookings);
-
-// const eurowings = {
-//   airline: 'Eurowings',
-//   iataCode: 'EW',
-//   bookings: [],
-// };
-
-// const book = lufthansa.book;
-
-// // Does NOT work
-// // book(23, 'John Smith');
-
-// // Call method
-// book.call(eurowings, 23, 'John Smith');
-// console.log(eurowings.bookings);
-
-// book.call(lufthansa, 239, 'Mary Cooper');
-// console.log(lufthansa.bookings);
-
-// // Apply method
-// const flightData = [583, 'George Brown'];
-// book.apply(eurowings, flightData);
-// console.log(eurowings.bookings);
-
-// book.call(eurowings, ...flightData);
-// console.log(eurowings.bookings);
-
-// const swiss = {
-//   airline: 'Swiss Air Lines',
-//   iataCode: 'LX',
-//   bookings: [],
-// };
-
-// book.call(swiss, 583, 'Mary Williams');
-// console.log(swiss.bookings);
-
-// // Bind method
-// const bookEW = book.bind(eurowings);
-// const bookLH = book.bind(lufthansa);
-// const bookLX = book.bind(swiss);
-
-// bookEW(23, 'Steven Williams');
-
-// const bookEW23 = book.bind(eurowings, 23);
-// bookEW23('Mark Davis');
-// bookEW23('Anna Smith');
-
-// // With event listeners
-// lufthansa.planes = 300;
-// lufthansa.buyPlane = function () {
-//   console.log(this);
-
-//   this.planes++;
-//   console.log(this.planes);
-// };
-
-// document
-//   .querySelector('.buy')
-//   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
-
-// // Partial application
-// const addTax = (rate, value) => value + value * rate;
-// console.log(addTax(0.1, 200));
-
-// const addVAT = addTax.bind(null, 0.23);
-// // addVAT = value => value + value * 0.23;
-
-// console.log(addVAT(100));
-// console.log(addVAT(23));
-
-// const addTaxRate = function (rate) {
-//   return function (value) {
-//     return value + value * rate;
-//   };
-// };
-
-// const addVAT2 = addTaxRate(0.23);
-
-// console.log(addVAT2(100));
-// console.log(addVAT2(23));
-
-// const runOnce = function () {
-//   console.log('This will never run again');
-// };
-// runOnce();
-
-// // IIFE
-// (function () {
-//   console.log('This will never run again');
-//   const isPrivate = 23;
-// })();
-
-// // console.log(isPrivate);
-
-// (() => console.log('This will ALSO never run again'))();
-
-// {
-//   const isPrivate = 23;
-//   var notPrivate = 46;
-// }
-// // console.log(isPrivate);
-// console.log(notPrivate);
-
-const secureBooking = function () {
-  let passengerCount = 0;
-
-  return function () {
-    passengerCount++;
-    console.log(`${passengerCount} passengers`);
-  };
+// Data
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
 };
 
-const booker = secureBooking();
-
-booker();
-booker();
-booker();
-
-console.dir(booker);
-
-// Example 1
-let f;
-
-const g = function () {
-  const a = 23;
-  f = function () {
-    console.log(a * 2);
-  };
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
 };
 
-const h = function () {
-  const b = 777;
-  f = function () {
-    console.log(b * 2);
-  };
+const account3 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
 };
 
-g();
-f();
-console.log(f);
-
-h();
-f();
-console.log(f);
-
-// Example 2
-const boardPassengers = function (n, wait) {
-  const perGroup = n / 3;
-
-  setTimeout(function () {
-    console.log(`We are now boarding all ${n} passengers`);
-    console.log(`There are 3 groups, each with ${perGroup} passengers`);
-  }, wait * 1000);
-
-  console.log(`Will start boarding in ${wait} seconds`);
+const account4 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
 };
 
-boardPassengers(180, 3);
+const accounts = [account1, account2, account3, account4];
+
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
+
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
+
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
+
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
