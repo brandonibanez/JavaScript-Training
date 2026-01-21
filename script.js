@@ -84,19 +84,35 @@ const displayMovements = function (movements, sort = false) {
 
 displayMovements(account1.movements);
 
-const user = 'Steven Thomas Williams'; // stw
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const createUsername = function (accs) {
-  accs.forEach(function (acc) {
-    acc.username = acc.owner
-      .toLowerCase()
-      .split(' ')
-      .map(name => name[0])
-      .join('');
-  });
-};
-createUsername(accounts);
-console.log(accounts);
+movements.filter(function (mov) {
+  return mov > 0;
+});
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+
+console.log(movements);
+console.log(deposits);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+
+// const user = 'Steven Thomas Williams'; // stw
+
+// const createUsername = function (accs) {
+//   accs.forEach(function (acc) {
+//     acc.username = acc.owner
+//       .toLowerCase()
+//       .split(' ')
+//       .map(name => name[0])
+//       .join('');
+//   });
+// };
+// createUsername(accounts);
+// console.log(accounts);
 
 // const arr = account1.movements.map(mov => (mov = mov * 2));
 
