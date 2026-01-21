@@ -84,21 +84,49 @@ const displayMovements = function (movements, sort = false) {
 
 displayMovements(account1.movements);
 
+const createUsername = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsername(accounts);
+
+const calcPrintBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+
+calcPrintBalance(account1.movements);
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-movements.filter(function (mov) {
-  return mov > 0;
-});
+console.log(movements.reduce((acc, mov) => acc + mov, 0));
 
-const deposits = movements.filter(function (mov) {
-  return mov > 0;
-});
+let balance = 0;
+for (const mov of movements) balance += mov;
 
-console.log(movements);
-console.log(deposits);
+console.log(balance);
+console.log(
+  movements.reduce((acc, mov) => (acc > mov ? acc : mov), movements[0]),
+);
 
-const withdrawals = movements.filter(mov => mov < 0);
-console.log(withdrawals);
+// movements.filter(function (mov) {
+//   return mov > 0;
+// });
+
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+
+// console.log(movements);
+// console.log(deposits);
+
+// const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawals);
 
 // const user = 'Steven Thomas Williams'; // stw
 
