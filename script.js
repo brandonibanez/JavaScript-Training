@@ -209,6 +209,14 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const lastWithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawal);
+
+const lastWithdrawalIndex = movements.findLastIndex(mov => mov < 0);
+console.log(lastWithdrawalIndex);
+
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // movements.find(mov => mov < 0);
