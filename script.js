@@ -121,41 +121,57 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (const movement of movements) {
-  if (movement > 0) {
-    console.log(`You deposited ${movement}`);
-  } else {
-    console.log(`You withdrew ${Math.abs(movement)}`);
-  }
-}
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You deposited ${movement}`);
+//   } else {
+//     console.log(`You withdrew ${Math.abs(movement)}`);
+//   }
+// }
 
-console.log('----FOR EACH----');
+// console.log('----FOR EACH----');
 
-movements.forEach(function (movement) {
-  if (movement > 0) {
-    console.log(`You deposited ${movement}`);
-  } else {
-    console.log(`You withdrew ${Math.abs(movement)}`);
-  }
-});
+// movements.forEach(function (movement) {
+//   if (movement > 0) {
+//     console.log(`You deposited ${movement}`);
+//   } else {
+//     console.log(`You withdrew ${Math.abs(movement)}`);
+//   }
+// });
 
-// 0: function(200)
-// 1: function(450)
-// 2: function(400)
-// ...
+// // 0: function(200)
+// // 1: function(450)
+// // 2: function(400)
+// // ...
 
-// Map
-const currencies2 = new Map([
+// // Map
+// const currencies2 = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// currencies2.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value}`);
+// });
+
+// // Set
+// const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function (value, _, map) {
+//   console.log(`${value}: ${value}`);
+// });
+
+const currenciesMap = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
 
-currencies2.forEach(function (value, key, map) {
+currenciesMap.forEach(function (value, key, map) {
   console.log(`${key}: ${value}`);
 });
 
-// Set
 const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
 console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, _, map) {
