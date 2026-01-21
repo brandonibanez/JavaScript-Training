@@ -82,7 +82,7 @@ const displayMovements = function (movements, sort = false) {
   });
 };
 
-displayMovements(account1.movements);
+// displayMovements(account1.movements);
 
 const createUsername = function (accs) {
   accs.forEach(function (acc) {
@@ -100,40 +100,69 @@ const calcPrintBalance = function (movements) {
   labelBalance.textContent = `${balance}€`;
 };
 
-calcPrintBalance(account1.movements);
+// calcPrintBalance(account1.movements);
 
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = movements
+  const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
-calcDisplaySummary(account1.movements);
+// calcDisplaySummary(account1.movements);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting
+  e.preventDefault();
 
-movements.find(mov => mov < 0);
+  const username = inputLoginUsername.value;
+  const pin = Number(inputLoginPin.value);
 
-console.log(movements.find(mov => mov < 0));
+  const currentAccount = accounts.find(
+    acc => acc.username === username && acc.pin === pin,
+  );
 
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log(account);
+  if (currentAccount) {
+    // Display UI and message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // Update UI
+    displayMovements(currentAccount.movements);
+    calcPrintBalance(currentAccount.movements);
+    calcDisplaySummary(currentAccount);
+  }
+});
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// movements.find(mov => mov < 0);
+
+// console.log(movements.find(mov => mov < 0));
+
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
 
 // const totalDeposits = movements
 //   .filter(mov => mov > 0)
