@@ -95,9 +95,18 @@ const createUsername = function (accs) {
 };
 createUsername(accounts);
 
-const calcPrintBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`;
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc.movements);
+  // Display balance
+  calcPrintBalance(acc);
+  // Display summary
+  calcDisplaySummary(acc);
+};
+
+const calcPrintBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 // calcPrintBalance(account1.movements);
@@ -126,6 +135,8 @@ const calcDisplaySummary = function (acc) {
 
 // calcDisplaySummary(account1.movements);
 
+let currentAccount;
+
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -133,7 +144,7 @@ btnLogin.addEventListener('click', function (e) {
   const username = inputLoginUsername.value;
   const pin = Number(inputLoginPin.value);
 
-  const currentAccount = accounts.find(
+  currentAccount = accounts.find(
     acc => acc.username === username && acc.pin === pin,
   );
 
@@ -149,9 +160,30 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginPin.blur();
 
     // Update UI
-    displayMovements(currentAccount.movements);
-    calcPrintBalance(currentAccount.movements);
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
+  }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value,
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    amount <= currentAccount.balance &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    // Doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
   }
 });
 
