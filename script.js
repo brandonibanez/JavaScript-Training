@@ -187,6 +187,21 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Math.floor(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -211,11 +226,15 @@ btnClose.addEventListener('click', function (e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const lastWithdrawal = movements.findLast(mov => mov < 0);
-console.log(lastWithdrawal);
+console.log(movements.some(mov => mov > 0));
 
-const lastWithdrawalIndex = movements.findLastIndex(mov => mov < 0);
-console.log(lastWithdrawalIndex);
+console.log(movements.every(mov => mov > 0));
+
+// const lastWithdrawal = movements.findLast(mov => mov < 0);
+// console.log(lastWithdrawal);
+
+// const lastWithdrawalIndex = movements.findLastIndex(mov => mov < 0);
+// console.log(lastWithdrawalIndex);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
