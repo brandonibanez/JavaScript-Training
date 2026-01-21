@@ -82,7 +82,24 @@ const displayMovements = function (movements, sort = false) {
   });
 };
 
-displayMovements(account1.movements);
+const arr = account1.movements.map(mov => (mov = mov * 2));
+
+displayMovements(arr);
+
+const movementsUSDfor = [];
+for (const mov of account1.movements) {
+  movementsUSDfor.push(mov * 1.1);
+}
+console.log(movementsUSDfor);
+
+const movementsDescriptions = account1.movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${
+      mov > 0 ? 'deposited' : 'withdrew'
+    } ${Math.abs(mov)}`,
+);
+
+console.log(movementsDescriptions);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
