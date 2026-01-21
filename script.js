@@ -102,17 +102,46 @@ const calcPrintBalance = function (movements) {
 
 calcPrintBalance(account1.movements);
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      // console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+calcDisplaySummary(account1.movements);
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(movements.reduce((acc, mov) => acc + mov, 0));
+const totalDeposits = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * 1.1)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDeposits);
+// console.log(movements.reduce((acc, mov) => acc + mov, 0));
 
-let balance = 0;
-for (const mov of movements) balance += mov;
+// let balance = 0;
+// for (const mov of movements) balance += mov;
 
-console.log(balance);
-console.log(
-  movements.reduce((acc, mov) => (acc > mov ? acc : mov), movements[0]),
-);
+// console.log(balance);
+// console.log(
+//   movements.reduce((acc, mov) => (acc > mov ? acc : mov), movements[0]),
+// );
 
 // movements.filter(function (mov) {
 //   return mov > 0;
