@@ -239,20 +239,46 @@ btnSort.addEventListener('click', function (e) {
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(movements);
+console.log([1, 2, 3, 4, 5, 6, 7]);
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
 
-const groupedMovements = Object.groupBy(movements, mov =>
-  mov > 0 ? 'deposits' : 'withdrawals',
+const x = new Array(7);
+console.log(x);
+console.log(x.map(() => 5));
+console.log(x.fill(1));
+console.log(x.fill(1, 3));
+console.log(x.fill(1, 3, 5));
+console.log(Array.from({ length: 7 }, () => 1));
+console.log(Array.from({ length: 7 }, (_, i) => i + 1));
+
+const y = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(y);
+
+const z = Array.from({ length: 100 }, () => Math.trunc(Math.random() * 6) + 1);
+console.log(z);
+
+const movementsUI = Array.from(
+  document.querySelectorAll('.movements__value'),
+  el => Number(el.textContent.replace('€', '')),
 );
-console.log(groupedMovements);
+// ).map(el => Number(el.textContent.replace('€', '')));
 
-const groupedByActivity = Object.groupBy(accounts, acc =>
-  acc.movements.some(mov => mov > 1000) ? 'active' : 'inactive',
-);
-console.log(groupedByActivity);
+console.log(movementsUI);
 
-const groupedAccounts = Object.groupBy(accounts, acc => acc.type);
-console.log(groupedAccounts);
+// console.log(movements);
+
+// const groupedMovements = Object.groupBy(movements, mov =>
+//   mov > 0 ? 'deposits' : 'withdrawals',
+// );
+// console.log(groupedMovements);
+
+// const groupedByActivity = Object.groupBy(accounts, acc =>
+//   acc.movements.some(mov => mov > 1000) ? 'active' : 'inactive',
+// );
+// console.log(groupedByActivity);
+
+// const groupedAccounts = Object.groupBy(accounts, acc => acc.type);
+// console.log(groupedAccounts);
 
 // const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 
