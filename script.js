@@ -224,31 +224,52 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  console.log('sort');
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const arr = [[1, 2, 3], 4, 5, 6, 7, 8];
-console.log(arr.flat());
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 
-const arrDeep = [[[1, 2], 3], [4, 5], 6, 7, 8];
-console.log(arrDeep.flat(2));
+console.log(owners.sort());
+console.log(movements.sort());
+// Ascending
+movements.sort((a, b) => a - b);
+console.log(movements);
 
-const accountMovements = accounts.map(acc => acc.movements);
-console.log(accountMovements);
-const allMovements = accountMovements.flat();
-console.log(allMovements);
-const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
-console.log(overalBalance);
+// Descending
+movements.sort((a, b) => b - a);
+console.log(movements);
 
-const overalBalance2 = accounts
-  .map(acc => acc.movements)
-  .flat()
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(overalBalance2);
+// const arr = [[1, 2, 3], 4, 5, 6, 7, 8];
+// console.log(arr.flat());
 
-const overalBalance3 = accounts
-  .flatMap(acc => acc.movements)
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(overalBalance3);
+// const arrDeep = [[[1, 2], 3], [4, 5], 6, 7, 8];
+// console.log(arrDeep.flat(2));
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// const overalBalance2 = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance2);
+
+// const overalBalance3 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance3);
 
 // console.log(movements.some(mov => mov > 0));
 
