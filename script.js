@@ -237,27 +237,41 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
 });
 
-const num = 3884764.23;
-
-console.log('US:', new Intl.NumberFormat('en-US').format(num));
-console.log('Germany:', new Intl.NumberFormat('de-DE').format(num));
-console.log('Syria:', new Intl.NumberFormat('ar-SY').format(num));
-console.log('Browser:', new Intl.NumberFormat(navigator.language).format(num));
-
-const options = {
-  style: 'currency',
-  unit: 'celsius',
-  currency: 'USD',
-  // useGrouping: false,
-};
-
-console.log('US:', new Intl.NumberFormat('en-US', options).format(num));
-console.log('Germany:', new Intl.NumberFormat('de-DE', options).format(num));
-console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(num));
-console.log(
-  'Browser:',
-  new Intl.NumberFormat(navigator.language, options).format(num),
+const ingredients = ['olives', 'spinach'];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+  3000,
+  ...ingredients,
 );
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+setInterval(function () {
+  const now = new Date();
+  console.log(`${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`);
+}, 1000);
+
+// const num = 3884764.23;
+
+// console.log('US:', new Intl.NumberFormat('en-US').format(num));
+// console.log('Germany:', new Intl.NumberFormat('de-DE').format(num));
+// console.log('Syria:', new Intl.NumberFormat('ar-SY').format(num));
+// console.log('Browser:', new Intl.NumberFormat(navigator.language).format(num));
+
+// const options = {
+//   style: 'currency',
+//   unit: 'celsius',
+//   currency: 'USD',
+//   // useGrouping: false,
+// };
+
+// console.log('US:', new Intl.NumberFormat('en-US', options).format(num));
+// console.log('Germany:', new Intl.NumberFormat('de-DE', options).format(num));
+// console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(num));
+// console.log(
+//   'Browser:',
+//   new Intl.NumberFormat(navigator.language, options).format(num),
+// );
 
 // const future = new Date(2037, 10, 19, 15, 23);
 // console.log(+future);
