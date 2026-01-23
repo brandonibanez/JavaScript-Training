@@ -332,15 +332,41 @@ btnSort.addEventListener('click', function (e) {
 //   });
 // });
 
-const diameter = 287_460_000_000;
-console.log(diameter);
+// const diameter = 287_460_000_000;
+// console.log(diameter);
 
-const priceCents = 345_99;
-console.log(priceCents);
+// const priceCents = 345_99;
+// console.log(priceCents);
 
-const transferFee = 15_00;
-const transferFee2 = 1_500;
+// const transferFee = 15_00;
+// const transferFee2 = 1_500;
 
-console.log(Number('230_000'));
-console.log(parseInt('230_000'));
-console.log(parseInt('230000'));
+// console.log(Number('230_000'));
+// console.log(parseInt('230_000'));
+// console.log(parseInt('230000'));
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(3847592374923749237492374923749237492n);
+console.log(BigInt(3847592374));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(3847592374923749237492374923749237492n * 100000n);
+
+// const huge = 3847592374923749237492374923749237492n;
+// const num = 23;
+// console.log(huge * num);
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == '20');
+
+// console.log(huge + ' is REALLY big!!!');
+
+// Divisions
+console.log(10n / 3n);
+console.log(10 / 3);
+console.log(10n / 3);
