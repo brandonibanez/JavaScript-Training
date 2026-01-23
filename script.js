@@ -237,6 +237,14 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
 });
 
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(+future);
+
+const daysPassed = (date1, date2) =>
+  Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+console.log(daysPassed(new Date(2037, 10, 19), new Date(2037, 10, 31)));
+
 // console.log(23 === 23.0);
 
 // console.log(0.1 + 0.2); // 0.30000000000000004
@@ -371,35 +379,35 @@ btnSort.addEventListener('click', function (e) {
 // console.log(10 / 3);
 // console.log(10n / 3);
 
-const now = new Date();
-console.log(now);
+// const now = new Date();
+// console.log(now);
 
-console.log(new Date('Aug 02 2023 18:05:41'));
-console.log(new Date('December 24, 2015'));
-console.log(new Date(account1.movements[0]));
+// console.log(new Date('Aug 02 2023 18:05:41'));
+// console.log(new Date('December 24, 2015'));
+// console.log(new Date(account1.movements[0]));
 
-console.log(new Date(2037, 10, 19, 15, 23, 5));
-console.log(new Date(2037, 10, 31)); // Dec 01
+// console.log(new Date(2037, 10, 19, 15, 23, 5));
+// console.log(new Date(2037, 10, 31)); // Dec 01
 
-console.log(new Date(0));
-console.log(new Date(3 * 24 * 60 * 60 * 1000));
+// console.log(new Date(0));
+// console.log(new Date(3 * 24 * 60 * 60 * 1000));
 
-// Working with dates
-const future = new Date(2037, 10, 19, 15, 23);
-console.log(future);
-console.log(future.getFullYear());
-console.log(future.getMonth());
-console.log(future.getDate());
-console.log(future.getDay());
-console.log(future.getHours());
-console.log(future.getMinutes());
-console.log(future.getSeconds());
-console.log(future.toISOString());
-console.log(future.getTime());
+// // Working with dates
+// const future = new Date(2037, 10, 19, 15, 23);
+// console.log(future);
+// console.log(future.getFullYear());
+// console.log(future.getMonth());
+// console.log(future.getDate());
+// console.log(future.getDay());
+// console.log(future.getHours());
+// console.log(future.getMinutes());
+// console.log(future.getSeconds());
+// console.log(future.toISOString());
+// console.log(future.getTime());
 
-console.log(new Date(2142249780000));
+// console.log(new Date(2142249780000));
 
-console.log(Date.now());
+// console.log(Date.now());
 
-future.setFullYear(2040);
-console.log(future);
+// future.setFullYear(2040);
+// console.log(future);
