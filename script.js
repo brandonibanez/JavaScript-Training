@@ -237,13 +237,35 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
 });
 
-const future = new Date(2037, 10, 19, 15, 23);
-console.log(+future);
+const num = 3884764.23;
 
-const daysPassed = (date1, date2) =>
-  Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+console.log('US:', new Intl.NumberFormat('en-US').format(num));
+console.log('Germany:', new Intl.NumberFormat('de-DE').format(num));
+console.log('Syria:', new Intl.NumberFormat('ar-SY').format(num));
+console.log('Browser:', new Intl.NumberFormat(navigator.language).format(num));
 
-console.log(daysPassed(new Date(2037, 10, 19), new Date(2037, 10, 31)));
+const options = {
+  style: 'currency',
+  unit: 'celsius',
+  currency: 'USD',
+  // useGrouping: false,
+};
+
+console.log('US:', new Intl.NumberFormat('en-US', options).format(num));
+console.log('Germany:', new Intl.NumberFormat('de-DE', options).format(num));
+console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(num));
+console.log(
+  'Browser:',
+  new Intl.NumberFormat(navigator.language, options).format(num),
+);
+
+// const future = new Date(2037, 10, 19, 15, 23);
+// console.log(+future);
+
+// const daysPassed = (date1, date2) =>
+//   Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+// console.log(daysPassed(new Date(2037, 10, 19), new Date(2037, 10, 31)));
 
 // console.log(23 === 23.0);
 
