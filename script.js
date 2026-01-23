@@ -310,24 +310,37 @@ btnSort.addEventListener('click', function (e) {
 // console.log((2.34567).toFixed(2));
 // console.log((2.34567).toFixed(4));
 
-console.log(5 % 2);
-console.log(5 / 2);
+// console.log(5 % 2);
+// console.log(5 / 2);
 
-console.log(8 % 3);
-console.log(8 / 3);
+// console.log(8 % 3);
+// console.log(8 / 3);
 
-console.log(6 % 2);
-console.log(6 / 2);
+// console.log(6 % 2);
+// console.log(6 / 2);
 
-const isEven = n => n % 2 === 0;
-console.log(isEven(8));
-console.log(isEven(23));
-console.log(isEven(514));
+// const isEven = n => n % 2 === 0;
+// console.log(isEven(8));
+// console.log(isEven(23));
+// console.log(isEven(514));
 
-// Labeling numbers
-labelBalance.addEventListener('click', function () {
-  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
-    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
-    if (i % 3 === 0) row.style.backgroundColor = 'green';
-  });
-});
+// // Labeling numbers
+// labelBalance.addEventListener('click', function () {
+//   [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+//     if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+//     if (i % 3 === 0) row.style.backgroundColor = 'green';
+//   });
+// });
+
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const priceCents = 345_99;
+console.log(priceCents);
+
+const transferFee = 15_00;
+const transferFee2 = 1_500;
+
+console.log(Number('230_000'));
+console.log(parseInt('230_000'));
+console.log(parseInt('230000'));
