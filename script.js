@@ -108,6 +108,13 @@ nav.addEventListener('mouseout', function (e) {
   handleHover(e, 1);
 });
 
+const initialCoords = section1.getBoundingClientRect();
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+
 // const h1 = document.querySelector('h1');
 
 // console.log(h1.querySelectorAll('.highlight'));
