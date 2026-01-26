@@ -142,6 +142,32 @@ allSections.forEach(function (section) {
   section.classList.add('section--hidden');
 });
 
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+const imgObserver = new IntersectionObserver(
+  function (entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Replace src with data-src
+        entry.target.src = entry.target.dataset.src;
+
+        entry.target.addEventListener('load', function () {
+          entry.target.classList.remove('lazy-img');
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: '200px',
+  },
+);
+
+imgTargets.forEach(img => imgObserver.observe(img));
+
 // const navHeight = nav.getBoundingClientRect().height;
 
 // const initialCoords = section1.getBoundingClientRect();
