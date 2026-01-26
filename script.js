@@ -108,12 +108,27 @@ nav.addEventListener('mouseout', function (e) {
   handleHover(e, 1);
 });
 
-const initialCoords = section1.getBoundingClientRect();
+const observer = new IntersectionObserver(
+  function (entries, observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) nav.classList.add('sticky');
+    else nav.classList.remove('sticky');
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${nav.getBoundingClientRect().height}px`,
+  },
+).observe(document.querySelector('.header'));
 
-window.addEventListener('scroll', function () {
-  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
-});
+// const navHeight = nav.getBoundingClientRect().height;
+
+// const initialCoords = section1.getBoundingClientRect();
+
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
 
 // const h1 = document.querySelector('h1');
 
