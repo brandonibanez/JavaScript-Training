@@ -121,6 +121,26 @@ const observer = new IntersectionObserver(
   },
 ).observe(document.querySelector('.header'));
 
+const sectionObeserver = new IntersectionObserver(
+  function (entries, observer) {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('section--hidden');
+      observer.unobserve(entry.target);
+    }
+  },
+  {
+    root: null,
+    threshold: 0.15,
+  },
+);
+
+const allSections = document.querySelectorAll('.section');
+allSections.forEach(function (section) {
+  sectionObeserver.observe(section);
+  section.classList.add('section--hidden');
+});
+
 // const navHeight = nav.getBoundingClientRect().height;
 
 // const initialCoords = section1.getBoundingClientRect();
