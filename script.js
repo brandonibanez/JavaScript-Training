@@ -123,11 +123,12 @@ const observer = new IntersectionObserver(
 
 const sectionObeserver = new IntersectionObserver(
   function (entries, observer) {
-    const [entry] = entries;
-    if (entry.isIntersecting) {
-      entry.target.classList.remove('section--hidden');
-      observer.unobserve(entry.target);
-    }
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('section--hidden');
+        observer.unobserve(entry.target);
+      }
+    });
   },
   {
     root: null,
