@@ -101,19 +101,41 @@ console.log(PersonCl.hey());
 
 // brandon.greet();
 
-const account = {
-  owner: 'Brandon',
-  movements: [200, 530, 120, 300],
+// const account = {
+//   owner: 'Brandon',
+//   movements: [200, 530, 120, 300],
 
-  get latest() {
-    return this.movements.slice(-1).pop();
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+
+// console.log(account.latest); // 300
+// account.latest = 50;
+// console.log(account.movements); // [200, 530, 120, 300, 50]
+
+const PersonProto = {
+  calcAge() {
+    const currentYear = new Date().getFullYear();
+    console.log(currentYear - this.birthYear);
   },
 
-  set latest(mov) {
-    this.movements.push(mov);
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
   },
 };
 
-console.log(account.latest); // 300
-account.latest = 50;
-console.log(account.movements); // [200, 530, 120, 300, 50]
+const steven = Object.create(PersonProto);
+steven.init('Steven Smith', 2000);
+console.log(steven);
+steven.calcAge();
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah Johnson', 1975);
+console.log(sarah);
+sarah.calcAge();
