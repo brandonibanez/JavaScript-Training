@@ -110,20 +110,22 @@ class Student extends PersonCl {
 }
 
 class Account {
+  locales = navigator.language;
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this._pin = pin;
-    this._movements = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
   }
 
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
     return this;
   }
 
@@ -133,14 +135,14 @@ class Account {
   }
 
   requestLoan(val) {
-    if (this._approveLoan(val)) {
+    if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log('Loan approved');
       return this;
     }
   }
 
-  _approveLoan(val) {
+  #approveLoan(val) {
     return true;
   }
 }
@@ -150,6 +152,7 @@ acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
 console.log(acc1.getMovements());
+console.log(acc1);
 
 // Chaining
 // acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
