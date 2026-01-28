@@ -68,7 +68,7 @@ const PersonCl = class {
   }
 
   set fullName(name) {
-    if (name.includes(' ')) this.fullName = name;
+    if (name.includes(' ')) this._fullName = name;
     else console.log('Incorrect!');
   }
 
