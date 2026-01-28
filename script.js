@@ -109,10 +109,56 @@ class Student extends PersonCl {
   }
 }
 
-const martha = new Student('Martha Jones', 2012, 'Computer Science');
-martha.introduce();
-martha.calcAge();
-console.log(martha.age);
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this._pin = pin;
+    this._movements = [];
+    this.locale = navigator.language;
+  }
+
+  getMovements() {
+    return this._movements;
+  }
+
+  deposit(val) {
+    this._movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log('Loan approved');
+      return this;
+    }
+  }
+
+  _approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account('Brandon', 'USD', 1111);
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+
+// Chaining
+// acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+// console.log(acc1.getMovements());
+
+// const martha = new Student('Martha Jones', 2012, 'Computer Science');
+// martha.introduce();
+// martha.calcAge();
+// console.log(martha.age);
 
 // const brandon = new PersonCl('Brandon Browns', 1990);
 // console.log(brandon.age);
@@ -144,34 +190,34 @@ console.log(martha.age);
 // // account.latest = 50;
 // // console.log(account.movements); // [200, 530, 120, 300, 50]
 
-const PersonProto = {
-  calcAge() {
-    const currentYear = new Date().getFullYear();
-    console.log(currentYear - this.birthYear);
-  },
+// const PersonProto = {
+//   calcAge() {
+//     const currentYear = new Date().getFullYear();
+//     console.log(currentYear - this.birthYear);
+//   },
 
-  init(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
-  },
-};
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
 
-const steven = Object.create(PersonProto);
+// const steven = Object.create(PersonProto);
 
-const StudentProto = Object.create(PersonProto);
-StudentProto.init = function (firstName, birthYear, course) {
-  PersonProto.init.call(this, firstName, birthYear);
-  this.course = course;
-};
+// const StudentProto = Object.create(PersonProto);
+// StudentProto.init = function (firstName, birthYear, course) {
+//   PersonProto.init.call(this, firstName, birthYear);
+//   this.course = course;
+// };
 
-StudentProto.introduce = function () {
-  console.log(`My name is ${this.firstName} and I study ${this.course}`);
-};
+// StudentProto.introduce = function () {
+//   console.log(`My name is ${this.firstName} and I study ${this.course}`);
+// };
 
-const jay = Object.create(StudentProto);
-jay.init('Jay Walker', 2010, 'Mathematics');
-jay.introduce();
-jay.calcAge();
+// const jay = Object.create(StudentProto);
+// jay.init('Jay Walker', 2010, 'Mathematics');
+// jay.introduce();
+// jay.calcAge();
 
 // const steven = Object.create(PersonProto);
 // steven.init('Steven Smith', 2000);
