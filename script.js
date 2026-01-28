@@ -144,17 +144,34 @@ console.log(martha.age);
 // // account.latest = 50;
 // // console.log(account.movements); // [200, 530, 120, 300, 50]
 
-// const PersonProto = {
-//   calcAge() {
-//     const currentYear = new Date().getFullYear();
-//     console.log(currentYear - this.birthYear);
-//   },
+const PersonProto = {
+  calcAge() {
+    const currentYear = new Date().getFullYear();
+    console.log(currentYear - this.birthYear);
+  },
 
-//   init(firstName, birthYear) {
-//     this.firstName = firstName;
-//     this.birthYear = birthYear;
-//   },
-// };
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay Walker', 2010, 'Mathematics');
+jay.introduce();
+jay.calcAge();
 
 // const steven = Object.create(PersonProto);
 // steven.init('Steven Smith', 2000);
