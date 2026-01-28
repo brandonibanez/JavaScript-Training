@@ -1,14 +1,21 @@
 'use strict';
 
-// const Person = function (firstName, birthYear) {
-//   this.firstName = firstName;
-//   this.birthYear = birthYear;
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
 
-//   // this.calcAge = function () {
-//   //   const currentYear = new Date().getFullYear();
-//   //   console.log(currentYear - this.birthYear);
-//   // };
-// };
+  // this.calcAge = function () {
+  //   const currentYear = new Date().getFullYear();
+  //   console.log(currentYear - this.birthYear);
+  // };
+};
+
+Person.hey = function () {
+  console.log('Hey there 👋');
+  console.log(this);
+};
+
+Person.hey();
 
 // const john = new Person('John', 1990);
 // console.log(john);
@@ -75,11 +82,16 @@ const PersonCl = class {
   get fullName() {
     return this._fullName;
   }
+
+  static hey() {
+    console.log('Hey Hey Ho');
+  }
 };
 
 const brandon = new PersonCl('Brandon Browns', 1990);
 console.log(brandon.age);
 console.log(brandon._fullName);
+console.log(PersonCl.hey());
 // console.log(brandon);
 // brandon.calcAge();
 
