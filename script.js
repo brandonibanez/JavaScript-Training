@@ -26,10 +26,10 @@ Person.hey();
 // console.log(john instanceof Person); // true
 
 // // Prototypes
-// Person.prototype.calcAge = function () {
-//   const currentYear = new Date().getFullYear();
-//   console.log(currentYear - this.birthYear);
-// };
+Person.prototype.calcAge = function () {
+  const currentYear = new Date().getFullYear();
+  console.log(currentYear - this.birthYear);
+};
 
 // john.calcAge(); // 33
 // jane.calcAge(); // 28
@@ -139,3 +139,27 @@ const sarah = Object.create(PersonProto);
 sarah.init('Sarah Johnson', 1975);
 console.log(sarah);
 sarah.calcAge();
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+mike.introduce();
+mike.calcAge();
+console.log(mike instanceof Student); // true
+console.log(mike instanceof Person); // true
+Student.prototype.constructor = Student;
+
+Student.hey = function () {
+  console.log('Hey from Student class');
+};
+
+Student.hey();
