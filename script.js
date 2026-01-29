@@ -16,18 +16,29 @@ navigator.geolocation.getCurrentPosition(
     const { latitude, longitude } = position.coords;
     console.log(`https://www.google.com/maps/@${latitude},${longitude},15z`);
 
-    var map = L.map('map').setView([latitude, longitude], 13);
+    const map = L.map('map').setView([latitude, longitude], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    // Handling clicks on map
-    L.marker([latitude, longitude])
-      .addTo(map)
-      .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-      .openPopup();
+    map.on('click', function (mapE) {
+      const { lat, lng } = mapE.latlng;
+      L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(
+          L.popup({
+            maxWidth: 250,
+            minWidth: 100,
+            autoClose: false,
+            closeOnClick: false,
+            className: 'running-popup',
+          }),
+        )
+        .setPopupContent('Workout')
+        .openPopup();
+    });
   },
   function () {
     alert('Could not get your position');
