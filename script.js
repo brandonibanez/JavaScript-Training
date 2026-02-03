@@ -274,8 +274,6 @@ const whereAmI = async function () {
     );
     if (!resGeo.ok) throw new Error('Problem getting location data');
     const dataGeo = await resGeo.json();
-    console.log(resGeo);
-    console.log(dataGeo);
     // Country data
     const res = await fetch(
       `https://restcountries.com/v2/name/${dataGeo.countryCode}`,
@@ -295,3 +293,20 @@ const whereAmI = async function () {
 };
 
 btn.addEventListener('click', whereAmI);
+
+// whereAmI()
+//   .then(city => console.log(city))
+//   .catch(err => console.error(`2: ${err.message} 💥`))
+//   .finally(() => {
+//     countriesContainer.style.opacity = 1;
+//   });
+
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(city);
+  } catch (err) {
+    console.log(err);
+  } finally {
+  }
+})();
