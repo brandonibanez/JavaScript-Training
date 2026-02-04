@@ -1,0 +1,24 @@
+{
+  "name": "javascript-training",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/brandonibanez/JavaScript-Training#readme",
+  "bugs": {
+    "url": "https://github.com/brandonibanez/JavaScript-Training/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonibanez/JavaScript-Training.git"
+  },
+  "license": "ISC",
+  "author": "Brandon",
+  "type": "commonjs",
+  "main": "clean.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "lodash-es": "^4.17.23"
+  }
+}
