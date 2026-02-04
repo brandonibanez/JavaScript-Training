@@ -5,11 +5,11 @@
 // import * as ShoppingCart from './shoppingCart.js';
 import add, { cart } from './shoppingCart.js';
 
-// add('bread', 5);
+add('bread', 5);
 
 // ShoppingCart.addToCart('apples', 5);
 // console.log(ShoppingCart.totalPrice, ShoppingCart.totalQuantity);
-// console.log(cart);
+console.log(cart);
 
 // const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 // const data = await res.json();
@@ -50,7 +50,8 @@ import add, { cart } from './shoppingCart.js';
 // ShoppingCart2.addToCart('pizza', 2);
 // console.log(ShoppingCart2.cart);
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash-es';
 
 const state = {
   cart: [{ product: 'bread', quantity: 5 }],
@@ -62,7 +63,6 @@ const stateDeepClone = cloneDeep(state);
 state.user.loggedIn = false;
 console.log(stateClone);
 console.log(stateDeepClone);
-console.log('Importing module');
 
 if (module.hot) {
   module.hot.accept();
