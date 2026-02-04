@@ -15,14 +15,37 @@ import add, { cart } from './shoppingCart.js';
 // const data = await res.json();
 // console.log(data[0]);
 
-const getLastPost = async function () {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const data = await res.json();
-  return { title: data.at(-1).title, text: data.at(-1).body };
-};
+// const getLastPost = async function () {
+//   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+//   const data = await res.json();
+//   return { title: data.at(-1).title, text: data.at(-1).body };
+// };
 
-const lastPost = await getLastPost();
-console.log(lastPost);
+// const lastPost = await getLastPost();
+// console.log(lastPost);
 
-const lastPost2 = await getLastPost();
-console.log(lastPost2);
+// const lastPost2 = await getLastPost();
+// console.log(lastPost2);
+
+const ShoppingCart2 = (function () {
+  const cart = [];
+  const shippingCost = 10;
+  const totalPrice = 237;
+  const totalQuantity = 23;
+  const addToCart = function (product, quantity) {
+    cart.push({ product, quantity });
+    console.log(
+      `${quantity} ${product}(s) added to cart. Shipping cost is ${shippingCost}`,
+    );
+  };
+
+  const orderStock = function (product, quantity) {
+    console.log(`${quantity} ${product}(s) ordered from supplier.`);
+  };
+
+  return { addToCart, cart, totalPrice, totalQuantity, orderStock };
+})();
+
+ShoppingCart2.addToCart('bananas', 5);
+ShoppingCart2.addToCart('pizza', 2);
+console.log(ShoppingCart2.cart);
